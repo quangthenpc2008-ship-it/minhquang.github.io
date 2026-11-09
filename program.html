@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khung Chương trình Đào tạo - FIT@HCMUS</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="logo-hcmus">
+                <span class="logo-hcm">HCM</span>
+                <span class="logo-us">US</span>
+            </div>
+            <div class="logo-text">
+                <div class="brand-title">fit@hcmus</div>
+                <div class="brand-subtitle">Khoa Công nghệ thông tin</div>
+            </div>
+        </div>
+        <div class="user-profile">
+            <div class="user-name" id="display-fullname">Tên Sinh Viên</div>
+            <div class="user-mssv" id="display-mssv">MSSV: ---------</div>
+        </div>
+    </header>
+
+    <!-- Layout Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-item">
+                <i class="fa-solid fa-chart-line sidebar-icon"></i><span>Dashboard</span>
+            </a>
+            <a href="program.html" class="sidebar-item active">
+                <i class="fa-solid fa-layer-group sidebar-icon"></i><span>Khung CTĐT</span>
+            </a>
+            <a href="grades.html" class="sidebar-item">
+                <span class="sidebar-icon" style="font-weight: 900; font-style: italic; text-decoration: underline; text-decoration-style: double;">100</span><span>Bảng điểm</span>
+            </a>
+            <a href="#" class="sidebar-item"><i class="fa-solid fa-bullseye sidebar-icon"></i><span>Mục tiêu</span></a>
+            <a href="#" class="sidebar-item"><i class="fa-solid fa-user-graduate sidebar-icon"></i><span>Tốt nghiệp</span></a>
+            <a href="#" class="sidebar-item"><i class="fa-solid fa-gear sidebar-icon"></i><span>Cài đặt</span></a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="program-content">
+            <!-- Left Program Sections -->
+            <div class="program-main">
+                
+                <!-- Section 1: ĐẠI CƯƠNG -->
+                <div class="program-card">
+                    <div class="card-header-row">
+                        <h2 class="card-section-title">Kiến thức giáo dục ĐẠI CƯƠNG</h2>
+                        <div class="card-header-info">
+                            <span class="total-credits-text">Tổng: 56 tín chỉ</span>
+                            <span class="sub-credit-note">Không tính nhóm Ngoại ngữ - GDTC - GDQP-AN</span>
+                        </div>
+                    </div>
+
+                    <div class="module-list">
+                        <!-- Module 1 -->
+                        <div class="module-item item-orange">
+                            <div class="module-index">1</div>
+                            <div class="module-icon-box icon-orange">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">Lý luận chính trị - Pháp luật</h4>
+                                <p class="module-desc">Những kiến thức nền tảng về chính trị, pháp luật</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-1">14 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-orange" id="fill-mod-1" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-orange" id="percent-mod-1">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+
+                        <!-- Module 2 -->
+                        <div class="module-item item-blue">
+                            <div class="module-index">2</div>
+                            <div class="module-icon-box icon-blue">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">KHXH - Kinh tế - Kỹ năng</h4>
+                                <p class="module-desc">Phát triển kỹ năng mềm, kiến thức xã hội</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-2">2 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-blue" id="fill-mod-2" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-blue" id="percent-mod-2">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+
+                        <!-- Module 3 -->
+                        <!-- Module 3 -->
+                        <a href="module-math.html" class="module-item item-green" style="text-decoration: none; color: inherit;">
+                            <div class="module-index">3</div>
+                            <div class="module-icon-box icon-green">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">Toán - KHTN - Môi trường</h4>
+                                <p class="module-desc">Nền tảng tư duy khoa học và môi trường</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-3">36 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-green" id="fill-mod-3" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-green" id="percent-mod-3">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </a>
+
+                        <!-- Module 4 -->
+                        <div class="module-item item-purple">
+                            <div class="module-index">4</div>
+                            <div class="module-icon-box icon-purple">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">Tin học</h4>
+                                <p class="module-desc">Kiến thức và kỹ năng công nghệ thông tin</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-4">4 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-purple" id="fill-mod-4" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-purple" id="percent-mod-4">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+
+                        <!-- Module 5 -->
+                        <div class="module-item item-pink">
+                            <div class="module-index">5</div>
+                            <div class="module-icon-box icon-pink">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">Ngoại ngữ - GDTC - GDQP-AN</h4>
+                                <p class="module-desc">Nâng cao năng lực ngoại ngữ và giáo dục toàn diện</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-5">20 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-pink" id="fill-mod-5" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-pink" id="percent-mod-5">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: CHUYÊN NGHIỆP -->
+                <div class="program-card">
+                    <div class="card-header-row">
+                        <h2 class="card-section-title">Kiến thức giáo dục CHUYÊN NGHIỆP</h2>
+                        <div class="card-header-info">
+                            <span class="total-credits-text">Tổng: 82 tín chỉ</span>
+                        </div>
+                    </div>
+
+                    <div class="module-list">
+                        <!-- Module 6 -->
+                        <div class="module-item item-red">
+                            <div class="module-index">1</div>
+                            <div class="module-icon-box icon-red">
+                                <i class="fa-solid fa-gear"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">Cơ sở ngành</h4>
+                                <p class="module-desc">Các học phần nền tảng của ngành</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-6">38 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-red" id="fill-mod-6" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-red" id="percent-mod-6">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+
+                        <!-- Module 7 -->
+                        <div class="module-item item-yellow">
+                            <div class="module-index">2</div>
+                            <div class="module-icon-box icon-yellow">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div class="module-info">
+                                <h4 class="module-title">Chuyên ngành</h4>
+                                <p class="module-desc">Các học phần chuyên sâu theo định hướng ngành</p>
+                            </div>
+                            <div class="module-credits" id="cred-mod-7">34 tín chỉ</div>
+                            <div class="progress-box">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill fill-yellow" id="fill-mod-7" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text text-yellow" id="percent-mod-7">0%</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Widget Cards Column -->
+            <div class="program-sidebar-widgets">
+                <!-- Widget 1: Tổng số tín chỉ -->
+                <div class="stat-widget-card bg-light-blue">
+                    <div class="widget-icon icon-light-blue">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div class="widget-content">
+                        <div class="widget-label">Tổng số tín chỉ</div>
+                        <div class="widget-val"><strong id="prog-total-credits">138</strong> tín chỉ</div>
+                    </div>
+                </div>
+
+                <!-- Widget 2: Đã hoàn thành -->
+                <div class="stat-widget-card">
+                    <div class="widget-top-row">
+                        <div class="widget-icon icon-check-green">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-label">Đã hoàn thành</div>
+                            <div class="widget-val"><strong id="prog-completed-credits">0</strong> tín chỉ</div>
+                        </div>
+                    </div>
+                    <div class="widget-progress-row">
+                        <div class="widget-bar-bg">
+                            <div class="widget-bar-fill fill-success" id="fill-completed-widget" style="width: 0%;"></div>
+                        </div>
+                        <span class="widget-percent text-success" id="percent-completed-widget">0%</span>
+                    </div>
+                </div>
+
+                <!-- Widget 3: Còn lại -->
+                <div class="stat-widget-card">
+                    <div class="widget-top-row">
+                        <div class="widget-icon icon-clock-blue">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-label">Còn lại</div>
+                            <div class="widget-val"><strong id="prog-remaining-credits">138</strong> tín chỉ</div>
+                        </div>
+                    </div>
+                    <div class="widget-progress-row">
+                        <div class="widget-bar-bg">
+                            <div class="widget-bar-fill fill-info" id="fill-remaining-widget" style="width: 100%;"></div>
+                        </div>
+                        <span class="widget-percent text-info" id="percent-remaining-widget">100%</span>
+                    </div>
+                </div>
+
+                <!-- Widget 4: GPA hiện tại -->
+                <div class="stat-widget-card">
+                    <div class="widget-top-row">
+                        <div class="widget-icon icon-star-yellow">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-label">GPA hiện tại</div>
+                            <div class="widget-val highlight-gpa"><span id="prog-gpa-val">0.00</span> / 4.0</div>
+                            <a href="#" class="widget-detail-link">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+</html>

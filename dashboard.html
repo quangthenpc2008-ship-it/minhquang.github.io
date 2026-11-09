@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mô hình Quản lý Học tập FIT@HCMUS</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js cho Biểu đồ -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="logo-hcmus">
+                <span class="logo-hcm">HCM</span>
+                <span class="logo-us">US</span>
+            </div>
+            <div class="logo-text">
+                <div class="brand-title">fit@hcmus</div>
+                <div class="brand-subtitle">Khoa Công nghệ thông tin</div>
+            </div>
+        </div>
+        <div class="user-profile">
+            <div class="user-name" id="display-fullname">Tên Sinh Viên</div>
+            <div class="user-mssv" id="display-mssv">MSSV: ---------</div>
+        </div>
+    </header>
+
+    <!-- Layout Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-item active">
+                <i class="fa-solid fa-chart-line sidebar-icon"></i><span>Dashboard</span>
+            </a>
+            <a href="program.html" class="sidebar-item">
+                <i class="fa-solid fa-layer-group sidebar-icon"></i><span>Khung CTĐT</span>
+            </a>
+            <a href="grades.html" class="sidebar-item">
+                <span class="sidebar-icon" style="font-weight: 900; font-style: italic; text-decoration: underline; text-decoration-style: double;">100</span><span>Bảng điểm</span>
+            </a>
+            <a href="#" class="sidebar-item"><i class="fa-solid fa-bullseye sidebar-icon"></i><span>Mục tiêu</span></a>
+            <a href="#" class="sidebar-item"><i class="fa-solid fa-user-graduate sidebar-icon"></i><span>Tốt nghiệp</span></a>
+            <a href="#" class="sidebar-item"><i class="fa-solid fa-gear sidebar-icon"></i><span>Cài đặt</span></a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="dashboard-content">
+            <!-- Left Overview Column -->
+            <div class="overview-section">
+                <h2 class="section-title">TỔNG QUÁT</h2>
+                
+                <!-- Donut Chart Container -->
+                <div class="donut-container">
+                    <canvas id="creditChart"></canvas>
+                    <div class="donut-center-text">
+                        <span class="credit-count" id="val-credits">0/138</span>
+                        <span class="credit-label">tín chỉ*</span>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-title">Xếp loại</div>
+                        <div class="stat-value val-rank" id="val-rank">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">GPA tích luỹ</div>
+                        <div class="stat-value val-gpa" id="val-gpa">0.0</div>
+                    </div>
+                </div>
+
+                <!-- Course Counters & Details Link -->
+                <div class="course-summary">
+                    <div class="course-counter">
+                        Tổng số môn <span class="badge-pass">ĐẠT: <strong id="val-passed">0</strong></span>
+                    </div>
+                    <div class="course-counter">
+                        Tổng số môn <span class="badge-fail">CHƯA ĐẠT: <strong id="val-failed">0</strong></span>
+                    </div>
+                </div>
+
+                <a href="#" class="details-link">Xem chi tiết <i class="fa-solid fa-chevron-down"></i></a>
+                
+                <p class="footnote">*: Không tính GDQP-AN, GDTC, ngoại ngữ</p>
+            </div>
+
+            <!-- Right Trend Chart Column -->
+            <div class="chart-section">
+                <div class="chart-card">
+                    <h3 class="chart-title">Xu hướng điểm trung bình qua các kì</h3>
+                    <div class="line-chart-container">
+                        <canvas id="gpaTrendChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="action-footer">
+                    <button class="btn-export">
+                        <i class="fa-solid fa-download"></i> Xuất file báo cáo
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+</html>
