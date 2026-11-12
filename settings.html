@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt - FIT@HCMUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="graduation.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="logo-hcmus">
+                <span class="logo-hcm">HCM</span>
+                <span class="logo-us">US</span>
+            </div>
+            <div class="logo-text">
+                <div class="brand-title">fit@hcmus</div>
+                <div class="brand-subtitle">Khoa Công nghệ thông tin</div>
+            </div>
+        </div>
+        <div class="user-profile">
+            <div class="user-name" id="display-fullname">Tên Sinh Viên</div>
+            <div class="user-mssv" id="display-mssv">MSSV: ---------</div>
+        </div>
+    </header>
+
+    <!-- Layout Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-item">
+                <i class="fa-solid fa-chart-line sidebar-icon"></i><span>Dashboard</span>
+            </a>
+            <a href="program.html" class="sidebar-item">
+                <i class="fa-solid fa-layer-group sidebar-icon"></i><span>Khung CTĐT</span>
+            </a>
+            <a href="grades.html" class="sidebar-item">
+                <span class="sidebar-icon sidebar-icon-grades">100</span><span>Bảng điểm</span>
+            </a>
+            <a href="goals.html" class="sidebar-item"><i class="fa-solid fa-bullseye sidebar-icon"></i><span>Mục tiêu</span></a>
+            <a href="graduation.html" class="sidebar-item"><i class="fa-solid fa-user-graduate sidebar-icon"></i><span>Tốt nghiệp</span></a>
+            <a href="settings.html" class="sidebar-item active"><i class="fa-solid fa-gear sidebar-icon"></i><span>Cài đặt</span></a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="settings-main-container">
+            <!-- Thông tin người dùng -->
+            <h2 class="settings-section-title">Thông tin người dùng</h2>
+            <div class="settings-card user-info-card">
+                <div class="user-info-layout">
+                    <div class="user-fields">
+                        <div class="field-row">
+                            <label>Tên:</label>
+                            <input type="text" id="set-name" class="set-input" readonly>
+                        </div>
+                        <div class="field-row">
+                            <label>MSSV:</label>
+                            <input type="text" id="set-mssv" class="set-input" readonly>
+                        </div>
+                        <div class="field-row">
+                            <label>Niên khoá:</label>
+                            <input type="text" class="set-input" value="2026 - 2030" readonly>
+                        </div>
+                        <div class="field-row">
+                            <label>Ngành:</label>
+                            <input type="text" class="set-input" value="Khoa học máy tính" readonly>
+                        </div>
+                        <div class="field-row">
+                            <label>Chuyên ngành:</label>
+                            <input type="text" id="set-major" class="set-input" value="" placeholder="-- Chưa chọn chuyên ngành --" readonly>
+                        </div>
+                    </div>
+                    <div class="user-avatar-box">
+                        <i class="fa-solid fa-user avatar-icon"></i>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn-setting btn-blue">Thay đổi thông tin</button>
+                </div>
+            </div>
+
+            <!-- Quản trị dữ liệu -->
+            <h2 class="settings-section-title mt-4">Quản trị dữ liệu</h2>
+            <div class="data-management-actions">
+                <div class="action-row-split">
+                    <button id="btn-export-backup" class="btn-setting btn-blue">Xuất file sao lưu <i class="fa-solid fa-download"></i></button>
+                    <button id="btn-restore-backup" class="btn-setting btn-green">Khôi phục <i class="fa-solid fa-upload"></i></button>
+                    <input type="file" id="restore-file-input" style="display: none;" accept=".json">
+                </div>
+                <button id="btn-reset-data" class="btn-setting btn-red btn-block">Đặt lại toàn bộ dữ liệu</button>
+                <button id="btn-logout" class="btn-setting btn-gray btn-block">Đăng xuất tài khoản</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Xác nhận Xóa dữ liệu -->
+    <div id="reset-confirm-modal" class="modal-overlay grad-modal-hidden">
+        <div class="modal-box confirm-modal-box">
+            <h3 class="confirm-title">Bạn có chắc chắn muốn xóa?</h3>
+            <p class="confirm-subtitle">Việc này sẽ xóa vĩnh viễn dữ liệu mãi mãi.</p>
+            <div class="confirm-actions">
+                <button id="btn-confirm-delete" class="btn-setting btn-red">Xóa</button>
+                <button id="btn-cancel-delete" class="btn-setting btn-gray">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

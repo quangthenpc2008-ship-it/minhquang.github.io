@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lý luận chính trị - Pháp luật - FIT@HCMUS</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="logo-hcmus">
+                <span class="logo-hcm">HCM</span>
+                <span class="logo-us">US</span>
+            </div>
+            <div class="logo-text">
+                <div class="brand-title">fit@hcmus</div>
+                <div class="brand-subtitle">Khoa Công nghệ thông tin</div>
+            </div>
+        </div>
+        <div class="user-profile">
+            <div class="user-name" id="display-fullname">Tên Sinh Viên</div>
+            <div class="user-mssv" id="display-mssv">MSSV: ---------</div>
+        </div>
+    </header>
+
+    <!-- Layout Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-item">
+                <i class="fa-solid fa-chart-line sidebar-icon"></i><span>Dashboard</span>
+            </a>
+            <a href="program.html" class="sidebar-item active">
+                <i class="fa-solid fa-layer-group sidebar-icon"></i><span>Khung CTĐT</span>
+            </a>
+            <a href="grades.html" class="sidebar-item">
+                <span class="sidebar-icon" style="font-weight: 900; font-style: italic; text-decoration: underline; text-decoration-style: double;">100</span><span>Bảng điểm</span>
+            </a>
+            <a href="goals.html" class="sidebar-item"><i class="fa-solid fa-bullseye sidebar-icon"></i><span>Mục tiêu</span></a>
+            <a href="graduation.html" class="sidebar-item"><i class="fa-solid fa-user-graduate sidebar-icon"></i><span>Tốt nghiệp</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear sidebar-icon"></i><span>Cài đặt</span></a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="program-content" style="align-items: flex-start; justify-content: center;">
+            <div class="detail-card">
+                <!-- Header Component -->
+                <div class="detail-header" style="background-color: #fff6ed;">
+                    <a href="program.html" class="btn-back" style="background-color: #fbd38d; color: #d97706; transition: 0.2s;">
+                        <i class="fa-solid fa-arrow-left-long"></i>
+                    </a>
+                    <div class="detail-title-box">
+                        <div class="detail-icon" style="background-color: #ffedd5; color: #ea580c;">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div>
+                            <div class="detail-title">Lý luận chính trị - Pháp luật</div>
+                            <div class="detail-subtitle">Những kiến thức nền tảng về chính trị, pháp luật</div>
+                        </div>
+                    </div>
+                    <div class="detail-progress-box">
+                        <span class="detail-credits-total">14 tín chỉ</span>
+                        <div class="detail-progress-bar" style="background-color: #ffedd5;">
+                            <div class="detail-progress-fill" id="politics-progress-fill" style="background-color: #f97316; width: 0%;"></div>
+                        </div>
+                        <span class="detail-progress-text" id="politics-progress-text" style="color: #ea580c;">0%</span>
+                    </div>
+                </div>
+
+                <!-- Course Table -->
+                <div class="table-wrapper" style="margin-top: 5px;">
+                    <table class="course-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>MÃ HỌC PHẦN</th>
+                                <th>TÊN HỌC PHẦN</th>
+                                <th>SỐ<br>TC</th>
+                                <th>LOẠI<br>HỌC<br>PHẦN</th>
+                                <th colspan="3">Số tiết<br><span style="font-size: 11px; font-weight: normal;">(LT - TH - BT)</span></th>
+                                <th>Học phần tiên quyết /<br>Học phần học trước</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="course-table-body-politics">
+                            <!-- Javascript sẽ render bảng vào đây -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <!-- Chart 1 -->
+                    <div class="chart-box">
+                        <div class="chart-title">Số tín chỉ</div>
+                        <div class="chart-flex">
+                            <div class="chart-canvas-container">
+                                <canvas id="chartCreditsPolitics"></canvas>
+                                <div class="chart-center-text" id="chart-percent-text-politics">0%</div>
+                            </div>
+                            <div style="text-align: left;">
+                                <div class="legend-item"><span class="dot dot-green"></span><strong>Đã học</strong><br><span id="leg-cred-passed-politics">0 tín chỉ</span></div>
+                                <div class="legend-item"><span class="dot dot-blue"></span><strong>Chưa học</strong><br><span id="leg-cred-not-politics">14 tín chỉ</span></div>
+                                <div class="legend-item"><span class="dot" style="background-color: #9e9e9e;"></span><strong>Tổng cộng</strong><br>14 tín chỉ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chart 2 -->
+                    <div class="chart-box">
+                        <div class="chart-title">Số môn</div>
+                        <div class="chart-flex">
+                            <div class="chart-canvas-container">
+                                <canvas id="chartCoursesPolitics"></canvas>
+                                <div class="chart-center-text" id="chart-courses-percent-politics">0%</div>
+                            </div>
+                            <div style="text-align: left;">
+                                <div class="legend-item"><span class="dot dot-green"></span><strong>Đạt</strong><br><span id="leg-course-passed-politics">0 môn</span></div>
+                                <div class="legend-item"><span class="dot dot-red"></span><strong>Chưa đạt</strong><br><span id="leg-course-failed-politics">0 môn</span></div>
+                                <div class="legend-item"><span class="dot" style="background-color: #9e9e9e;"></span><strong>Tổng cộng</strong><br>6 môn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+</html>

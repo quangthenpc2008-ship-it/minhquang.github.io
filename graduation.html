@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo dõi điều kiện tốt nghiệp - FIT@HCMUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="graduation.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="logo-hcmus">
+                <span class="logo-hcm">HCM</span>
+                <span class="logo-us">US</span>
+            </div>
+            <div class="logo-text">
+                <div class="brand-title">fit@hcmus</div>
+                <div class="brand-subtitle">Khoa Công nghệ thông tin</div>
+            </div>
+        </div>
+        <div class="user-profile">
+            <div class="user-name" id="display-fullname">Tên Sinh Viên</div>
+            <div class="user-mssv" id="display-mssv">MSSV: ---------</div>
+        </div>
+    </header>
+
+    <!-- Layout Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-item">
+                <i class="fa-solid fa-chart-line sidebar-icon"></i><span>Dashboard</span>
+            </a>
+            <a href="program.html" class="sidebar-item">
+                <i class="fa-solid fa-layer-group sidebar-icon"></i><span>Khung CTĐT</span>
+            </a>
+            <a href="grades.html" class="sidebar-item">
+                <span class="sidebar-icon sidebar-icon-grades">100</span><span>Bảng điểm</span>
+            </a>
+            <a href="goals.html" class="sidebar-item"><i class="fa-solid fa-bullseye sidebar-icon"></i><span>Mục tiêu</span></a>
+            <a href="graduation.html" class="sidebar-item active"><i class="fa-solid fa-user-graduate sidebar-icon"></i><span>Tốt nghiệp</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear sidebar-icon"></i><span>Cài đặt</span></a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="program-content grad-main">
+            <div class="detail-card">
+                <div class="grad-container">
+                    <h2 class="grad-page-title">Theo dõi điều kiện tốt nghiệp</h2>
+
+                    <!-- Banner Tiến Độ -->
+                    <div class="grad-banner">
+                        <div class="grad-banner-top">
+                            <div>
+                                <div class="grad-banner-label">Tiến độ</div>
+                                <div class="grad-ratio-row">
+                                    <span class="grad-ratio-num" id="grad-completed-ratio">0 / 5</span>
+                                    <span class="grad-ratio-text">điều kiện hoàn thành</span>
+                                </div>
+                            </div>
+                            <div class="grad-status-pill" id="grad-overall-status">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Đang hoàn thiện</span>
+                            </div>
+                        </div>
+
+                        <div class="grad-banner-subrow">
+                            <span class="grad-sub-label">Tỷ lệ hoàn thành tổng thể</span>
+                            <span class="grad-percent-val" id="grad-percent-text">0%</span>
+                        </div>
+                        <div class="grad-progress-track">
+                            <div class="grad-progress-fill" id="grad-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Bảng Điều Kiện Tốt Nghiệp -->
+                    <div class="grad-table-wrap">
+                        <table class="grad-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-grad-cond">Tên điều kiện</th>
+                                    <th class="col-grad-status">Trạng thái</th>
+                                    <th class="col-grad-note">Ghi chú - Số liệu</th>
+                                    <th class="col-grad-edit">Chỉnh sửa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="grad-table-body">
+                                <!-- JS render dữ liệu tại đây -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Chỉnh Sửa Điều Kiện Tốt Nghiệp -->
+    <div id="grad-edit-modal" class="modal-overlay grad-modal-hidden">
+        <div class="modal-box grad-modal-box">
+            <h3 class="grad-modal-title">Cập nhật điều kiện tốt nghiệp</h3>
+            <p id="grad-modal-cond-name" class="grad-modal-cond-name"></p>
+
+            <div class="modal-row">
+                <label for="grad-modal-status">Trạng thái:</label>
+                <select id="grad-modal-status" class="modal-input modal-select">
+                    <option value="auto">Tự động (Đồng bộ theo bảng điểm)</option>
+                    <option value="done">Hoàn thành</option>
+                    <option value="pending">Chưa hoàn thành</option>
+                </select>
+            </div>
+
+            <div class="modal-row">
+                <label for="grad-modal-note">Ghi chú - Số liệu:</label>
+                <input type="text" id="grad-modal-note" class="modal-input" placeholder="Ví dụ: IELTS 6.5, Chứng chỉ GDQP-AN...">
+            </div>
+
+            <div class="modal-actions grad-modal-actions">
+                <button class="btn-primary" id="btn-save-grad">Lưu thay đổi</button>
+                <button class="btn-secondary" id="btn-cancel-grad">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Modal Chỉnh Sửa Chuẩn Đầu Ra Ngoại Ngữ (Giống hình 1) -->
+    <div id="language-modal" class="modal-overlay grad-modal-hidden">
+        <div class="modal-box language-modal-box">
+            <div class="language-modal-content">
+                <div class="language-row">
+                    <label class="language-label">Chọn loại chứng chỉ:</label>
+                    <select id="cert-type" class="language-input" autocomplete="off">
+                        <!-- Thêm dòng này để tạo tùy chọn trống làm mặc định -->
+                        <option value="" disabled selected hidden>-- Chọn chứng chỉ --</option>
+                        <option value="IELTS">IELTS</option>
+                        <option value="VSTEP">VSTEP</option>
+                        <option value="TOEFL (iBT)">TOEFL (iBT)</option>
+                        <option value="TOEFL (ITP)">TOEFL (ITP)</option>
+                        <option value="TOEFL (ITP) + TOEIC">TOEFL (ITP) + TOEIC</option>
+                        <option value="TOEFL (CBT)">TOEFL (CBT)</option>
+                        <option value="TOEIC 4 kỹ năng">TOEIC 4 kỹ năng</option>
+                        <option value="PET-CEFR">PET-CEFR</option>
+                        <option value="FCE">FCE</option>
+                        <option value="BEC">BEC</option>
+                        <option value="BULATS">BULATS</option>
+                    </select>
+                </div>
+
+                <div class="language-row">
+                    <label class="language-label">Nhập điểm:</label>
+                    <!-- Bỏ value="6.5", đặt placeholder có chữ VD: -->
+                    <input type="text" id="cert-score" class="language-input" value="" placeholder="VD: 6.5">
+                </div>
+
+                <div class="language-row">
+                    <label class="language-label">Ngày cấp:</label>
+                    <!-- Bỏ value="21/04/2026", đặt placeholder có chữ VD: cho tương đương -->
+                    <input type="text" id="cert-date" class="language-input" value="" placeholder="VD: 21/04/2026">
+                </div>
+
+                <div class="language-check-btn-container">
+                    <button type="button" class="btn-check-cert" id="btn-check-cert">Kiểm tra</button>
+                </div>
+
+                <div id="cert-check-result" style="text-align: center; font-size: 13px; font-weight: 700; min-height: 18px;"></div>
+
+                <div class="language-info-link">
+                    <a href="javascript:void(0)" id="link-cert-info"><i>Tìm hiểu về Chuẩn ngoại ngữ đầu ra</i></a>
+                </div>
+
+                <div class="language-modal-actions">
+                    <button type="button" class="btn-delete-data" id="btn-delete-lang-data">Xóa dữ liệu</button>
+                    <div class="language-action-right" style="width: 145px;">
+                        <button type="button" class="btn-primary" id="btn-save-lang">Lưu thay đổi</button>
+                        <button type="button" class="btn-secondary" id="btn-cancel-lang">Hủy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Modal Bảng Quy Định Chuẩn Ngoại Ngữ Đầu Ra (Giống hình 2) -->
+    <div id="cert-info-modal" class="modal-overlay grad-modal-hidden" style="z-index: 2000;">
+        <div class="modal-box cert-info-box">
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                <h3 class="cert-info-title" style="margin: 0;">Quy định Chuẩn ngoại ngữ đầu ra</h3>
+            </div>
+            <div class="cert-info-table-container">
+                <table class="cert-info-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Tên chứng chỉ</th>
+                            <th rowspan="2">Nơi cấp chứng chỉ</th>
+                            <th colspan="3">Mức điểm tối thiểu</th>
+                        </tr>
+                        <tr>
+                            <th>Chương trình đại trà</th>
+                            <th>Chương trình tăng cường tiếng Anh (*)</th>
+                            <th>Chương trình tiên tiến ngành Khoa học máy tính</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>VSTEP</td>
+                            <td>Các đơn vị được Bộ GD&ĐT cấp phép</td>
+                            <td>B1 (bậc 3/6)</td>
+                            <td>B2 (bậc 4/6)</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>IELTS</td>
+                            <td>British Council hoặc IDP Australia</td>
+                            <td>4.5</td>
+                            <td>5.0</td>
+                            <td>6.0</td>
+                        </tr>
+                        <tr>
+                            <td>TOEFL (iBT)</td>
+                            <td>ETS</td>
+                            <td>45</td>
+                            <td>61</td>
+                            <td>79</td>
+                        </tr>
+                        <tr>
+                            <td>TOEFL (ITP)</td>
+                            <td>ETS</td>
+                            <td>450</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>TOEFL (ITP) + TOEIC 2 kỹ năng Nói - Viết<br><i>(Chỉ áp dụng cho các chương trình CNTT)</i></td>
+                            <td>ETS</td>
+                            <td>-</td>
+                            <td>TOEFL: 500;<br>TOEIC Nói-Viết: 240</td>
+                            <td>TOEFL ITP: 550;<br>TOEIC Nói-Viết: 270</td>
+                        </tr>
+                        <tr>
+                            <td>TOEFL (CBT)</td>
+                            <td>ETS</td>
+                            <td>133</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>TOEIC 4 kỹ năng</td>
+                            <td>ETS</td>
+                            <td>450 Nghe-Đọc;<br>181 Nói-Viết</td>
+                            <td>840 điểm tổng;<br>600 Nghe-Đọc;<br>240 Nói-Viết</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>PET-CEFR</td>
+                            <td>Cambridge ESOL</td>
+                            <td>B1</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>FCE</td>
+                            <td>Cambridge ESOL</td>
+                            <td>-</td>
+                            <td>B2 First hoặc 160 điểm</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>BEC (Business English Certificate)</td>
+                            <td>Cambridge Assessment</td>
+                            <td>Preliminary (B1)</td>
+                            <td>Vantage (B2)</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>BULATS</td>
+                            <td>Cambridge Assessment</td>
+                            <td>40</td>
+                            <td>60</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 18px;">
+                <button type="button" class="btn-primary" id="btn-close-cert-info">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
